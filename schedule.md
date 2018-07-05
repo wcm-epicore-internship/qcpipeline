@@ -1,5 +1,5 @@
 # Schedule
-1. Log into carmel.pbtech through pascal.med.cornell.edu with ssh, create a new directory for internship, check out the qupipeline project with git
+1. Log into carmel.pbtech through pascal.med.cornell.edu with ssh, create a new directory for internship, check out the qcpipeline project with git
 1. Explore the Pubshare site [Pubshare](http://abc.med.cornell.edu/pubshare)
 1. Use wget to download some FASTQ files onto Carmel
 1. Download FASTQC on your mac https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
