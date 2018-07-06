@@ -2,7 +2,7 @@
 ## Getting started with git and wget
   1. Log into carmel.pbtech through pascal.med.cornell.edu with ssh, create a new directory for internship, check out the qcpipeline project with git
   1. Explore the [Pubshare](http://abc.med.cornell.edu/pubshare) site
-  1. Read about wget and use it to download some FASTQ files onto Carmel
+  1. Read about wget and use it to download some FASTQ files into your `/scracthBulk/` directory of carmel
   1. Read about Homebrew and install it on your Mac
   1. Using Homebrew, install wget on your Mac
   1. Choose a small FASTQ file on Pubshare and use wget to download it on your mac
@@ -19,5 +19,5 @@
   1. Download FASTQC on your mac
   1. Run FASTQC on your mac
   1. Open the FASTQC results in your browser and use Google to try to understand the different parts
-  1. Divide the different parts of the FASTQC results report between you, write a few notes on your assigned parts and then together, meet with Piali to explain to her what each part of the report means and why it's import.
+  1. Divide the different parts of the FASTQC results report between you, write a few notes on your assigned parts and then together, meet with Piali to explain to her what each part of the report means and why it's important.
   1. Start adding to the Background of the Project README.md
