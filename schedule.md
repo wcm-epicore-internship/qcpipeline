@@ -21,3 +21,9 @@
   1. Open the FASTQC results in your browser and use Google to try to understand the different parts
   1. Divide the different parts of the FASTQC results report between you, write a few notes on your assigned parts and then together, meet with Piali to explain to her what each part of the report means and why it's important.
   1. Start adding to the Background of the Project README.md
+## BaseSpace
+  1. Read about Illumina BaseSpace
+  1. Login to Illumina BaseSpace (ask Piali for login details)
+  1. Look at the QC for a couple of runs and read the help to try understand them
+  1. How are we going to compare FASTQC vs Base Space? Start list of features to compare
+  
