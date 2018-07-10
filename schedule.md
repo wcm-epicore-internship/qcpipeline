@@ -27,7 +27,7 @@
     $ ssh carmel.pbtech
     $ cd /scratchBulk/<username>
     $ mkdir fastqc_testing
-    $ ch fastqc_testing
+    $ cd fastqc_testing
     $ slchoose fastqc 0.10.1 java # this loads the FASTQC program into your environment
     The following commands were executed:
     export FASTQC_HOME=/softlib/exe/all/pkg/fastqc/0.10.1/java
