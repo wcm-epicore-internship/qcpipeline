@@ -25,7 +25,7 @@
     ```
     $ ssh pascal.med.cornell.edu
     $ ssh carmel.pbtech
-    $ cd /scratchBulk/<username>
+    $ cd /scratchBulk/${USER}
     $ mkdir fastqc_testing
     $ cd fastqc_testing
     $ slchoose fastqc 0.10.1 java # this loads the FASTQC program into your environment
@@ -39,7 +39,7 @@
   1. Write a Bash script on Carmel that takes a path to a FASTQ dataset and runs FASTQC for all samples (one at a time), eg:
     
     ```
-      $ cd /scratchBulk/<username>
+      $ cd /scratchBulk/${USER}
       $ bash fastqc_wrapper.sh /scratchBulk/sij2003/test_data/external_demux_180206_M05686_0007_000000000-D3K2T__uid11426
       - Copying data from input path
       - Found 5 samples
