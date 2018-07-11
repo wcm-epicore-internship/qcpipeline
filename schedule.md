@@ -22,7 +22,7 @@
   1. Divide the different parts of the FASTQC results report between you, write a few notes on your assigned parts and then together, meet with Piali to explain to her what each part of the report means and why it's important.
   1. Run FASTQC on carmel via the command line
     
-    ```
+    ```bash
     $ ssh pascal.med.cornell.edu
     $ ssh carmel.pbtech
     $ cd /scratchBulk/${USER}
@@ -38,7 +38,7 @@
     ```
   1. Write a Bash script on Carmel that takes a path to a FASTQ dataset and runs FASTQC for all samples (one at a time), eg:
     
-    ```
+    ```bash
       $ cd /scratchBulk/${USER}
       $ bash fastqc_wrapper.sh /scratchBulk/sij2003/test_data/external_demux_180206_M05686_0007_000000000-D3K2T__uid11426
       - Copying data from input path
