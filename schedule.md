@@ -38,6 +38,8 @@
     ```
   1. Write a Bash script on Carmel that takes a path to a FASTQ dataset and runs FASTQC for all samples (one at a time), eg:
     
+    Test dataset path: `/scratchBulk/sij2003/test_data/external_demux_180206_M05686_0007_000000000-D3K2T__uid11426/Project_EC-SC-4602/`
+    
     ```bash
       $ cd /scratchBulk/${USER}
       $ bash fastqc_wrapper.sh /scratchBulk/sij2003/test_data/external_demux_180206_M05686_0007_000000000-D3K2T__uid11426
