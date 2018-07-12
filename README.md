@@ -16,6 +16,7 @@ The aim of this project is to compare publicly available software applications a
   Sequencers produce FASTQ files with a quality score using Phred quality score and ASCII to calculate accuracy of the probability of corresponding base calls. The FASTQ files are further analyzed using the FASTQC program or Sequence Analysis Viewer (SAV) to conduct a quality control on the sequence after a run.  
 
 **Why is QC of Big Data different to QC of say an Excel spreadsheet?**
+
 Method: Quality control on data in an excel sheet requires additional steps than performing quality control on big data. In an excel spreadsheet some steps include, naming original files and ensuring the data is stored. Excel spreadsheets is dependent on creating separate files such as a readMe file to keep track of manipulations of data. Quality control on big data requires less steps and information is easily accessed, edited or transmitted to other systems. 
 
 Technology: Big data can be conveniently analyzed using many programming languages and software whereas the data in an excel sheet is limited to specific programs.
