@@ -54,4 +54,14 @@
   1. Login to Illumina BaseSpace (ask Piali for login details)
   1. Look at the QC for a couple of runs and read the help to try understand them
   1. How are we going to compare FASTQC vs Base Space? Start list of features to compare
+
+## FASTX Toolkit
+1. Read about fastx_collapser and fastx_quality_stats
+1. Run locally or on carmel with FASTQ test data
+  ```
+    slchoose fastx_toolkit 0.0.13.2 gcc4_64_libgtextutils-0.6.1
+    fastx_quality_stats
+    fastx_collapser
+  ```
+
   
