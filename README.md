@@ -25,7 +25,7 @@ Method: Quality control on data in an excel sheet requires additional steps than
 
 Technology: Big data can be conveniently analyzed using many programming languages and software whereas the data in an excel sheet is limited to specific programs.
 
-**Illumina BaseSpace 
+**Illumina BaseSpace**
 
 The Illumina BaseSpace software can directly analyze data from sequencers such as “HiSeq, NextSeq, MiSeq, and MiniSeq systems.” Some features of Illumina BaseSpace are “Integrated Run Setup and Monitoring, Streamlined Data Management and Storage and Simplified Data Analysis.” The Integrated Run Setup and Monitoring allows the user to run and monitor the data from any location. The Streamlined Data Management and Storage enables the upscaling or downscaling of the data to meet storage demands while the Simplified Data Analysis performs assist in data analysis using the Illumina workflow apps. 
 
