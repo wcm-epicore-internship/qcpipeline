@@ -17,6 +17,10 @@ The aim of this project is to compare publicly available software applications a
 
 **Why is QC of Big Data different to QC of say an Excel spreadsheet?**
 
+Data quality refers to the methodical approach, policies and processes by which an organization manages the accuracy, validity, timeliness, completeness, uniqueness, and consistency of its data. Quality control methodologies differ from Big Data to Excel spreadsheets.
+
+Size is a significant differentiator where big data is larger than excel spreadsheets. Although quality control testing is required regardless of size, using a variety of methods on Big Data may provide better results. 
+
 Method: Quality control on data in an excel sheet requires additional steps than performing quality control on big data. In an excel spreadsheet some steps include, naming original files and ensuring the data is stored. Excel spreadsheets is dependent on creating separate files such as a readMe file to keep track of manipulations of data. Quality control on big data requires less steps and information is easily accessed, edited or transmitted to other systems. 
 
 Technology: Big data can be conveniently analyzed using many programming languages and software whereas the data in an excel sheet is limited to specific programs.
