@@ -53,7 +53,6 @@
   1. Read about Illumina BaseSpace
   1. Login to Illumina BaseSpace (ask Piali for login details)
   1. Look at the QC for a couple of runs and read the help to try understand them
-  1. How are we going to compare FASTQC vs Base Space? Start list of features to compare
 
 ## FASTX Toolkit
 1. Read about fastx_collapser and fastx_quality_stats
@@ -62,6 +61,57 @@
     slchoose fastx_toolkit 0.0.13.2 gcc4_64_libgtextutils-0.6.1
     fastx_quality_stats
     fastx_collapser
+  ```
+
+## fastp
+1. Read about [fastp](https://github.com/OpenGene/fastp)
+1. Download and run on epicore08 (see "download binary") section
+
+## SGE
+1. Read about "Sun Grid Engine" (also called "SGE" or "Oracle Grid Engine")
+1. Create a new directory for "sge_test" on epicore08:/scratch001/<user name>
+1. Create a new file qsub_test.sh below
+  ```
+    #!/bin/bash -l
+    #$ -pe smp 1
+    #$ -l h_vmem=1G
+    #$ -cwd
+    echo "Hello World" > hello.txt
+  ```
+1. Then submit it to the queue and check it's there
+  ```
+    qsub -q aladdin.q@epicore08.pbtech qsub_test.sh
+    qstat -f -u "*" -q aladdin.q@epicore08.pbtech
+  ``` 
+1. Once it's run check for "hello.txt" and view the contents
+1. Lookup what the "-pe smp" "-l h_vmem" "-cwd" params do [here](https://github.com/BIMSBbioinfo/intro2UnixandSGE/blob/master/sun_grid_engine_for_beginners/how_to_submit_a_job_using_qsub.md)
+1. Find out how long it took to run
+  ```
+    qacct -j <job number>
+  ``` 
+  
+
+## Run-time comparisons
+1. To compare how long each program takes to run, we need to start with a good set of test data:
+* We want 3 FASTQ files: approx 100MB, approx 1GB and approx 10GB
+* Download a FASTQ that's >10GB on Pubshare to epicore08 scratch
+* Extract all the *.fastq.gz files
+* Use the linux tail and cat command to create 3 files roughly 100MB, 1GB and 10GB (see below for naming)
+* Write a qsub script for each program (3 separate scripts) and then run them for each file
+  ```
+    qsub -q aladdin.q@epicore08.pbtech -N "FASTQC 100 MB" fastqc_wrapper.sh qc_test_100mb.fastq
+    qsub -q aladdin.q@epicore08.pbtech -N "FASTQC 1 GB" fastqc_wrapper.sh qc_test_1gb.fastq
+    qsub -q aladdin.q@epicore08.pbtech -N "FASTQC 10 GB" fastqc_wrapper.sh qc_test_10gb.fastq
+  ```
+  ```
+    qsub -q aladdin.q@epicore08.pbtech -N "FASTX 100 MB" fastx_wrapper.sh qc_test_100mb.fastq
+    qsub -q aladdin.q@epicore08.pbtech -N "FASTX 1 GB" fastx_wrapper.sh qc_test_1gb.fastq
+    qsub -q aladdin.q@epicore08.pbtech -N "FASTX 10 GB" fastx_wrapper.sh qc_test_10gb.fastq
+  ```
+  ```
+    qsub -q aladdin.q@epicore08.pbtech -N "FASTP 100 MB" fastp_wrapper.sh qc_test_100mb.fastq
+    qsub -q aladdin.q@epicore08.pbtech -N "FASTP 1 GB" fastp_wrapper.sh qc_test_1gb.fastq
+    qsub -q aladdin.q@epicore08.pbtech -N "FASTP 10 GB" fastp_wrapper.sh qc_test_10gb.fastq
   ```
 
   
