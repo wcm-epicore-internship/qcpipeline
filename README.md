@@ -33,16 +33,19 @@ Unlike most programs, BaseSpace’s unique feature allows data to be edited simu
 
 
 ### FASTQC
+* Latest version release date
 * Link to official site
 * Brief description
 * Pros and cons table
 
 ### FASTX-Toolkit
+* Latest version release date
 * Link to official site
 * Brief description
 * Pros and cons table
 
 ### fastp
+* Latest version release date
 * Link to official site
 * Brief description
 * Pros and cons table
@@ -52,3 +55,4 @@ Unlike most programs, BaseSpace’s unique feature allows data to be edited simu
 * features (eg column headers: FASTQC, FASTX-Toolkit, fastp; each row header is a feature)
 * run times (eg column headers: FASTQC, FASTX-Toolkit, fastp; rows headers 100MB File, 1GB File, 10GB File)
 
+### Conclusion
