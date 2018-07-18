@@ -33,19 +33,19 @@ Unlike most programs, BaseSpace’s unique feature allows data to be edited simu
 
 
 ### FASTQC
-* Latest version release date
+* Version used and release date
 * Link to official site
 * Brief description
 * Pros and cons table
 
 ### FASTX-Toolkit
-* Latest version release date
+* Version used and release date
 * Link to official site
 * Brief description
 * Pros and cons table
 
 ### fastp
-* Latest version release date
+* Version used and release date
 * Link to official site
 * Brief description
 * Pros and cons table
