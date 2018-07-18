@@ -113,5 +113,7 @@
     qsub -q aladdin.q@epicore08.pbtech -N "FASTP 1 GB" fastp_wrapper.sh qc_test_1gb.fastq
     qsub -q aladdin.q@epicore08.pbtech -N "FASTP 10 GB" fastp_wrapper.sh qc_test_10gb.fastq
   ```
+* Use qacct to get the run time statistics as above
+* Document in README.md
 
   
