@@ -30,3 +30,25 @@ Technology: Big data can be conveniently analyzed using many programming languag
 The Illumina BaseSpace software can directly analyze data from sequencers such as “HiSeq, NextSeq, MiSeq, and MiniSeq systems.” Some features of Illumina BaseSpace are “Integrated Run Setup and Monitoring, Streamlined Data Management and Storage and Simplified Data Analysis.” The Integrated Run Setup and Monitoring allows the user to run and monitor the data from any location. The Streamlined Data Management and Storage enables the upscaling or downscaling of the data to meet storage demands while the Simplified Data Analysis performs assist in data analysis using the Illumina workflow apps. 
 
 Unlike most programs, BaseSpace’s unique feature allows data to be edited simultaneously by Illumina workflow apps. Using these apps for analysis generates information about alignment, variants and assist in the conversion of base call files (.bcl) to FASTQ files. The Fastqc app available on Illumina BaseSpace requires the data to be uploaded in the app. In contrary to the Fastqc program, the focus includes high throughput sequencing of data. Backspace has a significant role in monitoring the sequencer rather focusing on data accuracy resulting in an emphasis on the quality control of reads. 
+
+
+### FASTQC
+* Link to official site
+* Brief description
+* Pros and cons table
+
+### FASTX-Toolkit
+* Link to official site
+* Brief description
+* Pros and cons table
+
+### fastp
+* Link to official site
+* Brief description
+* Pros and cons table
+
+### Comparsion Tables
+* system requirements (eg column headers: FASTQC, FASTX-Toolkit, fastp; rows headers: Architecture, OS, RAM)
+* features (eg column headers: FASTQC, FASTX-Toolkit, fastp; each row header is a feature)
+* run times (eg column headers: FASTQC, FASTX-Toolkit, fastp; rows headers 100MB File, 1GB File, 10GB File)
+
