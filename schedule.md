@@ -80,7 +80,7 @@
   ```
 1. Then submit it to the queue and check it's there
   ```
-    qsub -q aladdin.q@epicore08.pbtech qsub_test.sh
+    qsub -cwd -q aladdin.q@epicore08.pbtech qsub_test.sh
     qstat -f -u "*" -q aladdin.q@epicore08.pbtech
   ``` 
 1. Once it's run check for "hello.txt" and view the contents
