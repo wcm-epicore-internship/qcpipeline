@@ -97,21 +97,101 @@
 * Download a FASTQ that's >10GB on Pubshare to epicore08 scratch
 * Extract all the *.fastq.gz files
 * Use the linux tail and cat command to create 3 files roughly 100MB, 1GB and 10GB (see below for naming)
-* Write a qsub script for each program (3 separate scripts) and then run them for each file
+* Create the `qc.sh` script below
   ```
-    qsub -q aladdin.q@epicore08.pbtech -N "FASTQC 100 MB" fastqc_wrapper.sh qc_test_100mb.fastq
-    qsub -q aladdin.q@epicore08.pbtech -N "FASTQC 1 GB" fastqc_wrapper.sh qc_test_1gb.fastq
-    qsub -q aladdin.q@epicore08.pbtech -N "FASTQC 10 GB" fastqc_wrapper.sh qc_test_10gb.fastq
+  #!/bin/bash -l
+  #$ -pe smp 1
+  #$ -l h_vmem=1G
+  # The lines above are for qsub
+
+  # Create a log file
+  # The command "| tee -a $logfile" below writes the output to the log file 
+  logfile="qc_log.txt";
+  touch $logfile;
+
+  # Print out the usage options
+  print_usage() {
+  echo "Usage: $(basename $0)
+      -h   --help             This help message
+      -i,  --fastq-input      The input fastq (required)
+      -s,  --something-else   Another param
+  "
+  }
+
+  # If the environment variable is set (eg. by qsub) then set the value here
+  # If the command line argument is set below, it will overwrite
+  fastq_input=$INPUT;
+  something_else='';
+
+  # get the command line argument values
+  until [ -z "$1" ]; do
+      case "$1" in
+      -h | --help)
+          print_usage
+          exit 0;;
+      -i | --fastq-input)
+          fastq_input=$2
+          shift 2;;
+      -s | --something-else)
+          something_else=$2
+          shift 2;;
+      --)  #End of all options
+          shift
+          break;;
+      -*)
+          echo -e "Invalid option ($1)." | tee -a $logfile;
+          exit 1;;
+
+      *)
+          break;;
+    esac
+  done
+
+  echo -e "Value of fastq_input is ${fastq_input}" | tee -a $logfile;
+  echo -e "Value of something_else is ${something_else}" | tee -a $logfile;
+
+  if [ -z "$fastq_input" ]; then
+      echo -e "fastq input must be specified" | tee -a $logfile;
+      exit 1;
+  fi
+
+
+  echo -e "Lets check the file exists...." | tee -a $logfile;
+  if [ -e $fastq_input ]; then
+      echo -e "Yes it does" | tee -a $logfile;
+  else
+      echo -e "No it does not, exiting" | tee -a $logfile;
+      exit 1;
+  fi
+  ```
+* Run the following commands and compare the output. When you run the qsub, look at the output in the "qc_log.txt" file
+  ```
+  $ bash qc.sh
+  $ bash qc.sh hello
+  $ bash qc.sh -i hello
+  $ bash qc.sh -i /path/to/a/file
+  $ qsub -cwd -q aladdin.q@epicore08.pbtech -v INPUT=/path/to/a/file qc.sh
+  ```
+* Modify the script for the following
+  1. accept another anrgument -p or --program that can be fastqc, fastp or fastx - make this variable also accept the environment variable $PROGRAM (the same way $INPUT does)
+  1. depending on what prgram is selected, run the program against the input
+  1. allow input to be a directory of fastq files or a single file
+  1. if the input is a directory, run the program for all of the fastq files in the directory
+* run the following qsubs
+  ```
+    qsub -cwd -q aladdin.q@epicore08.pbtech -N "FASTQC 100 MB" -v INPUT=qc_test_100mb.fastq -v PROGRAM=fastqc qc.sh
+    qsub -cwd -q aladdin.q@epicore08.pbtech -N "FASTQC 1 GB" -v INPUT=qc_test_1gb.fastq -v PROGRAM=fastqc qc.sh
+    qsub -cwd -q aladdin.q@epicore08.pbtech -N "FASTQC 10 GB" -v INPUT=qc_test_10gb.fastq -v PROGRAM=fastqc qc.sh
   ```
   ```
-    qsub -q aladdin.q@epicore08.pbtech -N "FASTX 100 MB" fastx_wrapper.sh qc_test_100mb.fastq
-    qsub -q aladdin.q@epicore08.pbtech -N "FASTX 1 GB" fastx_wrapper.sh qc_test_1gb.fastq
-    qsub -q aladdin.q@epicore08.pbtech -N "FASTX 10 GB" fastx_wrapper.sh qc_test_10gb.fastq
+    qsub -cwd -q aladdin.q@epicore08.pbtech -N "FASTX 100 MB" -v INPUT=qc_test_100mb.fastq -v PROGRAM=fastx qc.sh
+    qsub -cwd -q aladdin.q@epicore08.pbtech -N "FASTX 1 GB" -v INPUT=qc_test_1gb.fastq -v PROGRAM=fastx qc.sh
+    qsub -cwd -q aladdin.q@epicore08.pbtech -N "FASTX 10 GB" -v INPUT=qc_test_10gb.fastq -v PROGRAM=fastx qc.sh
   ```
   ```
-    qsub -q aladdin.q@epicore08.pbtech -N "FASTP 100 MB" fastp_wrapper.sh qc_test_100mb.fastq
-    qsub -q aladdin.q@epicore08.pbtech -N "FASTP 1 GB" fastp_wrapper.sh qc_test_1gb.fastq
-    qsub -q aladdin.q@epicore08.pbtech -N "FASTP 10 GB" fastp_wrapper.sh qc_test_10gb.fastq
+    qsub -cwd -q aladdin.q@epicore08.pbtech -N "FASTP 100 MB" -v INPUT=qc_test_100mb.fastq -v PROGRAM=fastp qc.sh
+    qsub -cwd -q aladdin.q@epicore08.pbtech -N "FASTP 1 GB" -v INPUT=qc_test_1gb.fastq -v PROGRAM=fastp qc.sh
+    qsub -cwd -q aladdin.q@epicore08.pbtech -N "FASTP 10 GB" -v INPUT=qc_test_10gb.fastq -v PROGRAM=fastp qc.sh
   ```
 * Use qacct to get the run time statistics as above
 * Document in README.md
