@@ -1,6 +1,6 @@
 # FASTQ Quality Control
 #### An evaluation of publicly available software and best of breed pipeline
-###### Ameni Alsaydi & Shazeda Omar
+###### Ameni Alsaydi
 ----
 ### Aim
 The aim of this project is to compare publicly available software applications and libraries for processing quality control metrics on FASTQ files and from this comparison, develop a software pipeline.
